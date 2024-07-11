@@ -298,9 +298,35 @@ Os resultados apresentados indicam que tanto a escolha do otimizador quanto a ta
 
 \subsection{Bidirectional Long Short-Term Memory}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum tempor mauris, eu tempor quam. Vestibulum hendrerit scelerisque ante, non maximus dui ullamcorper vitae. Aliquam id lacus augue. Nullam sed convallis mauris. In convallis eros ut efficitur commodo. Mauris mollis odio sem, id finibus lectus maximus viverra. Nunc euismod imperdiet diam, nec gravida eros tincidunt non. In a velit sed ante tristique accumsan. Praesent gravida turpis vel velit lobortis rutrum. Praesent vitae ipsum at ante volutpat iaculis sit amet id purus. Suspendisse neque arcu, vehicula quis nulla non, rhoncus mattis velit. Mauris sit amet eros ut est elementum ullamcorper id ac erat. Vestibulum sodales quam velit, vitae fringilla metus cursus sagittis.
+Primeiramente, é essencial analisar o desempenho dos modelos de Bidirectional Long Short-Term Memory (BiLSTM) treinados com base nos otimizadores para a detecção do discurso de ódio. O gráfico da Figura 7 apresenta a relação entre a acurácia e o F1-Score dos modelos. Essas duas métricas foram escolhidas para compor os gráficos da seção, pois esta envolve a precisão e o \textit{recall}, outras métricas importantes utilizadas para a análise dos modelos, enquanto que aquela representa o desempenho geral dos modelos.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum tempor mauris, eu tempor quam. Vestibulum hendrerit scelerisque ante, non maximus dui ullamcorper vitae. Aliquam id lacus augue. Nullam sed convallis mauris. In convallis eros ut efficitur commodo. Mauris mollis odio sem, id finibus lectus maximus viverra. Nunc euismod imperdiet diam, nec gravida eros tincidunt non. In a velit sed ante tristique accumsan. Praesent gravida turpis vel velit lobortis rutrum. Praesent vitae ipsum at ante volutpat iaculis sit amet id purus. Suspendisse neque arcu, vehicula quis nulla non, rhoncus mattis velit. Mauris sit amet eros ut est elementum ullamcorper id ac erat. Vestibulum sodales quam velit, vitae fringilla metus cursus sagittis.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\linewidth]{bilstm-otimizador.png}
+    \caption{Acurácia vs F1-Score por Otimizador}
+    \label{fig:exemplo4}
+\end{figure}
+
+Analisando-o, é possível observar que os modelos otimizados com Adam geralmente apresentam melhores resultados, com acurácia e F1-Score mais elevados em comparação com SGD e RMSprop. A maioria dos pontos relacionados ao Adam está concentrada na parte superior do gráfico, indicando um bom desempenho. Por outro lado, os modelos otimizados com SGD (\textit{Stochastic Gradient Descent}) mostram maior variabilidade, com muitos pontos distribuídos na parte inferior do gráfico, sugerindo um desempenho menos consistente. Os modelos com RMSprop situam-se entre os outros, apresentando desempenho intermediário.
+
+Através dessa análise de otimizadores, é possível concluir que Adam é o otimizador mais eficiente para os modelos BiLSTM no contexto da detecção do discurso de ódio. Sua capacidade de ajustar os pesos de forma mais eficaz resulta em uma melhor performance global.
+
+Além disso, também é possível realizar uma análise baseada nas taxas de aprendizado diferentes utilizadas nos modelos BiLSTM treinados, o que pode ser facilmente visualizado no gráfico da Figura 6.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\linewidth]{bilstm-lr.png}
+    \caption{Acurácia vs F1-Score por taxas de aprendizado}
+    \label{fig:exemplo5}
+\end{figure}
+
+Os resultados mostram que a taxa de aprendizado de 0,001 tende a ser a mais eficaz, resultando em modelos com métricas elevadas e consistentes. A taxa de 0,0001, embora tenha produzido alguns modelos de bom desempenho, apresenta maior variabilidade e alguns modelos com desempenho inferior, além de que, já que esse número é muito baixo, os modelos com essa \textit{learning rate} demoram muito para serem treinados e, perceptivelmente, não é um bom investimento. A taxa de 0,001 também representou resultados similares, com alguns modelos com bom desempenho, mas também possuindo alta instabilidade, com vários modelos apresentando desempenho bem abaixo do esperado.
+
+Isso indica que a taxa de aprendizagem de 0,001 é a mais adequada para o desenvolvimento de BiLSTMs para a detecção do discurso de ódio, proporcionando um equilíbrio ideal entre a estabilidade do treinamento e a capacidade do modelo de aprender padrões complexos presentes nos dados.
+
+Experimentos testando diferentes números de \textit{hidden layers} também foram realizados, contudo nenhuma conclusão pode ser afirmada devido à enorme variabilidade de resultados quando esse fator foi levado em consideração, fazendo com que ele não seja tão crucial quanto os outros parâmetros para um bom desempenho do modelo.
+
+Os resultados apresentados indicam que tanto a escolha do otimizador quanto a taxa de aprendizagem são fatores importantes que afetam significativamente o desempenho dos modelos de BiLSTM treinados para a detecção do discurso de ódio. A combinação do otimizador Adam com uma \textit{learning rate} de 0,001 resultou nos melhores desempenhos, fazendo com que o modelo treinado com base nessa configuração capture de forma eficaz os padrões complexos nos dados utilizados para a detecção do discurso de ódio.
 
 \subsection{Transformers}
 
