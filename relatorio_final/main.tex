@@ -9,6 +9,8 @@
 \usepackage{xcolor}
 \usepackage{lipsum}
 \usepackage{parskip}
+\usepackage{hyperref}
+
 
 
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
@@ -141,7 +143,7 @@ Uma das limitações das RNNs tradicionais é o problema do desvanecimento do gr
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=\linewidth]{gru.png}
+    \includegraphics[width=\linewidth]{images/gru.png}
     \caption{Estrutura da GRU}
     \label{fig:gru}
 \end{figure}
@@ -158,7 +160,7 @@ A arquitetura de um bloco LSTM é composta por células de memória, onde cada c
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=\linewidth]{lstm.png}
+    \includegraphics[width=\linewidth]{images/lstm.png}
     \caption{Blocos LSTM}
     \label{fig:exemplo1}
 \end{figure}
@@ -169,7 +171,7 @@ Na porta de entrada, uma função sigmoide decide quais valores serão atualizad
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=\linewidth]{bilstm.png}
+    \includegraphics[width=\linewidth]{images/bilstm.png}
     \caption{Estrutura da BiLSTM}
     \label{fig:exemplo2}
 \end{figure}
@@ -182,7 +184,7 @@ Os Transformers revolucionaram o campo do Processamento de Linguagem Natural (PL
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=\linewidth]{transformer.png}
+    \includegraphics[width=\linewidth]{images/transformer.png}
     \caption{Estrutura geral dos Transformers}
     \label{fig:exemplo3}
 \end{figure}
@@ -270,7 +272,7 @@ Primeiramente, é essencial analisar o desempenho dos modelos de Gated Recurrent
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=\linewidth]{gru-otimizador.png}
+    \includegraphics[width=\linewidth]{images/gru-otimizador.png}
     \caption{Acurácia vs F1-Score por Otimizador}
     \label{fig:exemplo4}
 \end{figure}
@@ -283,7 +285,7 @@ Além disso, também é possível realizar uma análise baseada nas taxas de apr
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=\linewidth]{gru-lr.png}
+    \includegraphics[width=\linewidth]{images/gru-lr.png}
     \caption{Acurácia vs F1-Score por taxas de aprendizado}
     \label{fig:exemplo5}
 \end{figure}
@@ -302,7 +304,7 @@ Primeiramente, é essencial analisar o desempenho dos modelos de Bidirectional L
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=\linewidth]{bilstm-otimizador.png}
+    \includegraphics[width=\linewidth]{images/bilstm-otimizador.png}
     \caption{Acurácia vs F1-Score por Otimizador}
     \label{fig:exemplo4}
 \end{figure}
@@ -315,7 +317,7 @@ Além disso, também é possível realizar uma análise baseada nas taxas de apr
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=\linewidth]{bilstm-lr.png}
+    \includegraphics[width=\linewidth]{images/bilstm-lr.png}
     \caption{Acurácia vs F1-Score por taxas de aprendizado}
     \label{fig:exemplo5}
 \end{figure}
@@ -343,5 +345,4 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum tempor m
 
 \bibliographystyle{IEEEtran}
 \bibliography{refs.bib}
-
 \end{document}
