@@ -286,7 +286,7 @@ Além disso, também é possível realizar uma análise baseada nas taxas de apr
 \begin{figure}[h!]
     \centering
     \includegraphics[width=\linewidth]{images/gru-lr.png}
-    \caption{Acurácia vs F1-Score por taxas de aprendizado}
+    \caption{Acurácia vs F1-Score por taxas de aprendizado (GRU)}
     \label{fig:exemplo5}
 \end{figure}
 
@@ -305,7 +305,7 @@ Primeiramente, é essencial analisar o desempenho dos modelos de Bidirectional L
 \begin{figure}[h!]
     \centering
     \includegraphics[width=\linewidth]{images/bilstm-otimizador.png}
-    \caption{Acurácia vs F1-Score por Otimizador}
+    \caption{Acurácia vs F1-Score por Otimizador (GRU)}
     \label{fig:exemplo4}
 \end{figure}
 
@@ -318,7 +318,7 @@ Além disso, também é possível realizar uma análise baseada nas taxas de apr
 \begin{figure}[h!]
     \centering
     \includegraphics[width=\linewidth]{images/bilstm-lr.png}
-    \caption{Acurácia vs F1-Score por taxas de aprendizado}
+    \caption{Acurácia vs F1-Score por taxas de aprendizado (BiLSTM)}
     \label{fig:exemplo5}
 \end{figure}
 
@@ -332,9 +332,29 @@ Os resultados apresentados indicam que tanto a escolha do otimizador quanto a ta
 
 \subsection{Transformers}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum tempor mauris, eu tempor quam. Vestibulum hendrerit scelerisque ante, non maximus dui ullamcorper vitae. Aliquam id lacus augue. Nullam sed convallis mauris. In convallis eros ut efficitur commodo. Mauris mollis odio sem, id finibus lectus maximus viverra. Nunc euismod imperdiet diam, nec gravida eros tincidunt non. In a velit sed ante tristique accumsan. Praesent gravida turpis vel velit lobortis rutrum. Praesent vitae ipsum at ante volutpat iaculis sit amet id purus. Suspendisse neque arcu, vehicula quis nulla non, rhoncus mattis velit. Mauris sit amet eros ut est elementum ullamcorper id ac erat. Vestibulum sodales quam velit, vitae fringilla metus cursus sagittis.
+No caso dos modelos treinados utilizando a arquitetura Transformer, os resultados obtidos foram próximos aos das outras arquiteturas, com o otimizador Adam e a taxa de aprendizado de 0,001 apresentando os melhores resultados. A Figura \ref{fig:transformer_acu_lr} mostra a relação entre a acurácia e o F1-Score dos modelos treinados com base nos otimizadores.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum tempor mauris, eu tempor quam. Vestibulum hendrerit scelerisque ante, non maximus dui ullamcorper vitae. Aliquam id lacus augue. Nullam sed convallis mauris. In convallis eros ut efficitur commodo. Mauris mollis odio sem, id finibus lectus maximus viverra. Nunc euismod imperdiet diam, nec gravida eros tincidunt non. In a velit sed ante tristique accumsan. Praesent gravida turpis vel velit lobortis rutrum. Praesent vitae ipsum at ante volutpat iaculis sit amet id purus. Suspendisse neque arcu, vehicula quis nulla non, rhoncus mattis velit. Mauris sit amet eros ut est elementum ullamcorper id ac erat. Vestibulum sodales quam velit, vitae fringilla metus cursus sagittis.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\linewidth]{images/transformer_acu_lr.png}
+    \caption{Acurácia vs F1-Score por taxas de aprendizado (Transformer)}
+    \label{fig:transformer_acu_lr}
+\end{figure}
+
+A taxa de aprendizado 0,01 apresenta resultados mais variáveis, com alguns modelos obtendo desempenho superior e outros inferior. A taxa de 0,001, por outro lado, resulta em modelos mais consistentes, com acurácia e F1-Score mais elevados. A taxa de 0,0001, embora tenha produzido alguns modelos com bom desempenho, apresenta maior variabilidade e alguns modelos com desempenho inferior.
+
+Em relação ao número de cabeças, os resultados indicam que o número ideal é 8, com os modelos treinados com essa configuração apresentando os melhores desempenhos. O gráfico da Figura \ref{fig:transformer_acu_heads} mostra a relação entre a acurácia e o F1-Score dos modelos treinados com diferentes números de cabeças. O aumento do número de cabeças resulta no aumento da complexidade do modelo, o que, provavelmente devido ao conjunto de dados não ser tão grande, leva a um desempenho inferior.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\linewidth]{images/transformer_acu_heads.png}
+    \caption{Acurácia vs F1-Score por número de cabeças (Transformer)}
+    \label{fig:transformer_acu_heads}
+\end{figure}
+
+Assim como nos modelos GRU e BiLSTM, os resultados dos experimentos com diferentes números de camadas ocultas não foram conclusivos.
+
+Os resultados obtidos com os modelos Transformer confirmam a importância da escolha do otimizador e da taxa de aprendizado para o desempenho dos modelos, juntamente com o número de cabeças. A combinação do otimizador Adam com uma taxa de aprendizado de 0,001 e 8 cabeças resultou nos melhores desempenhos, destacando a eficácia dos Transformers na detecção do discurso de ódio. Porém, é importante ressaltar que, devido à complexidade dos Transformers, o tempo de treinamento desses modelos é significativamente maior em comparação com os modelos GRU e BiLSTM. Assim, por apresentarem resultados semelhantes (até mesmo um pouco piores), talvez os transformers não sejam a melhor escolha para a detecção de discurso de ódio em um conjunto de dados pequeno.
 
 \subsection{Discussão}
 
